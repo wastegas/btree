@@ -53,3 +53,28 @@ void btree::AddNode(int key, node* ptr)
   else
    std::cout << "Key " << key << " already exist in tree.\n"; 
 }
+
+void btree::Print()
+{
+  PrintTree(root);
+}
+
+void btree::PrintTree(node* ptr)
+{
+  if (root != NULL)
+    {
+      if(ptr->left != NULL)
+        {
+          PrintTree(ptr->left);
+        }
+      std::cout << ptr->key << " ";
+      if(ptr->right != NULL)
+        {
+          PrintTree(ptr->right);
+        }
+    }
+  else
+    {
+      std::cout << "Tree is empty.\n";
+    }
+}

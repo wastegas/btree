@@ -9,7 +9,9 @@ private:
   node* root;
   node* CreateLeaf(int);
   void AddNode(int, node*);
+  void PrintTree(node*);
 public:
   btree();
   void AddKey(int);
+  void Print();
 };
