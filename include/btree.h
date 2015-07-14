@@ -1,3 +1,6 @@
+#ifndef BTREE_H
+#define BTREE_H
+
 class btree
 {
 private:
@@ -15,3 +18,5 @@ public:
   void AddKey(int);
   void Print();
 };
+
+#endif
