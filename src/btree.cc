@@ -7,7 +7,7 @@ btree::btree()
   root = NULL;
 }
 
-btree::node* btree::CreateLeaf(int key)
+btree::node* btree::CreateLeaf(const int& key)
 {
   node* n = new node;
   n->key = key;
@@ -17,12 +17,12 @@ btree::node* btree::CreateLeaf(int key)
   return n;
 }
 
-void btree::AddKey(int key)
+void btree::AddKey(const int& key)
 {
   AddNode(key, root);
 }
 
-void btree::AddNode(int key, node* ptr)
+void btree::AddNode(const int& key, node* ptr)
 {
   if (root == NULL)
     {

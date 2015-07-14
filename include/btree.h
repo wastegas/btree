@@ -10,12 +10,12 @@ private:
       node* right;
   };
   node* root;
-  node* CreateLeaf(int);
-  void AddNode(int, node*);
+  node* CreateLeaf(const int&);
+  void AddNode(const int&, node*);
   void PrintTree(node*);
 public:
   btree();
-  void AddKey(int);
+  void AddKey(const int&);
   void Print();
 };
 
