@@ -1,9 +1,9 @@
 #include <iostream>
-#include "btree.h"
+#include "btree.cc"
 
 int main()
 {
-  btree tree;
+  btree<int> tree;
 
   int key[5] = {3, 6, 1, 10, 5};
 
