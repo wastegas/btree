@@ -7,6 +7,10 @@ btree::btree()
   root = NULL;
 }
 
+btree::~btree()
+{
+}
+
 btree::node* btree::CreateLeaf(const int& key)
 {
   node* n = new node;

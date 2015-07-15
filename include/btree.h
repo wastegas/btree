@@ -15,6 +15,7 @@ private:
   void PrintTree(node*);
 public:
   btree();
+  ~btree();
   void AddKey(const int&);
   void Print();
 };
