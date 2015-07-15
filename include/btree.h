@@ -1,22 +1,23 @@
 #ifndef BTREE_H
 #define BTREE_H
 
+template<class T>
 class btree
 {
 private:
   struct node {
-      int key;
+      T key;
       node* left;
       node* right;
   };
   node* root;
-  node* CreateLeaf(const int&);
-  void AddNode(const int&, node*);
+  node* CreateLeaf(const T&);
+  void AddNode(const T&, node*);
   void PrintTree(node*);
 public:
   btree();
   ~btree();
-  void AddKey(const int&);
+  void AddKey(const T&);
   void Print();
 };
 

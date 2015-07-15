@@ -2,16 +2,23 @@
 #include <cstdlib>
 #include "btree.h"
 
-btree::btree()
+template class btree<int>;
+template class btree<float>;
+template class btree<double>;
+
+template<class T>
+btree<T>::btree()
 {
   root = NULL;
 }
 
-btree::~btree()
+template<class T>
+btree<T>::~btree()
 {
 }
 
-btree::node* btree::CreateLeaf(const int& key)
+template<class T>
+typename btree<T>::node* btree<T>::CreateLeaf(const T& key)
 {
   node* n = new node;
   n->key = key;
@@ -21,12 +28,14 @@ btree::node* btree::CreateLeaf(const int& key)
   return n;
 }
 
-void btree::AddKey(const int& key)
+template<class T>
+void btree<T>::AddKey(const T& key)
 {
   AddNode(key, root);
 }
 
-void btree::AddNode(const int& key, node* ptr)
+template<class T>
+void btree<T>::AddNode(const T& key, typename btree<T>::node* ptr)
 {
   if (root == NULL) {
     root = CreateLeaf(key);
@@ -51,12 +60,14 @@ void btree::AddNode(const int& key, node* ptr)
    std::cout << "Key " << key << " already exist in tree.\n"; 
 }
 
-void btree::Print()
+template<class T>
+void btree<T>::Print()
 {
   PrintTree(root);
 }
 
-void btree::PrintTree(node* ptr)
+template<class T>
+void btree<T>::PrintTree(typename btree<T>::node* ptr)
 {
   if (root != NULL) {
     if(ptr->left != NULL) {
