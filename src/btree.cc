@@ -24,32 +24,25 @@ void btree::AddKey(const int& key)
 
 void btree::AddNode(const int& key, node* ptr)
 {
-  if (root == NULL)
-    {
-      root = CreateLeaf(key);
+  if (root == NULL) {
+    root = CreateLeaf(key);
+  }
+  else if(key < ptr->key) {
+    if(ptr->left != NULL) {
+      AddNode(key, ptr->left);
     }
-  else if(key < ptr->key)
-    {
-      if(ptr->left != NULL)
-        {
-          AddNode(key, ptr->left);
-        }
-      else
-        {
-         ptr->left = CreateLeaf(key);
-        }
+    else {
+      ptr->left = CreateLeaf(key);
     }
-  else if(key > ptr->key)
-    {
-     if(ptr->right != NULL)
-       {
-        AddNode(key, ptr->right);
-       }
-     else
-       {
-        ptr->right = CreateLeaf(key);
-       }
+  }
+  else if(key > ptr->key) {
+    if(ptr->right != NULL) {
+      AddNode(key, ptr->right);
     }
+    else {
+      ptr->right = CreateLeaf(key);
+    }
+  }
   else
    std::cout << "Key " << key << " already exist in tree.\n"; 
 }
@@ -61,20 +54,16 @@ void btree::Print()
 
 void btree::PrintTree(node* ptr)
 {
-  if (root != NULL)
-    {
-      if(ptr->left != NULL)
-        {
-          PrintTree(ptr->left);
-        }
-      std::cout << ptr->key << " ";
-      if(ptr->right != NULL)
-        {
-          PrintTree(ptr->right);
-        }
+  if (root != NULL) {
+    if(ptr->left != NULL) {
+      PrintTree(ptr->left);
     }
-  else
-    {
-      std::cout << "Tree is empty.\n";
+    std::cout << ptr->key << " ";
+    if(ptr->right != NULL) {
+      PrintTree(ptr->right);
     }
+  }
+  else {
+    std::cout << "Tree is empty.\n";
+  }
 }
