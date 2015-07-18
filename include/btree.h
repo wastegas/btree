@@ -1,8 +1,8 @@
-#ifndef BTREE_H
+ifndef BTREE_H
 #define BTREE_H
 
 template<class T>
-class btree
+class Btree
 {
 private:
   struct node {
@@ -15,8 +15,8 @@ private:
   void AddNode(const T&, node*);
   void PrintTree(node*);
 public:
-  btree();
-  ~btree();
+  Btree();
+  ~Btree();
   void AddKey(const T&);
   void Print();
 };

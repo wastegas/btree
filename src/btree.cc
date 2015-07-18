@@ -1,24 +1,24 @@
 #include <iostream>
 #include <cstdlib>
-#include "btree.h"
+#include "Btree.h"
 
-template class btree<int>;
-template class btree<float>;
-template class btree<double>;
+template class Btree<int>;
+template class Btree<float>;
+template class Btree<double>;
 
 template<class T>
-btree<T>::btree()
+Btree<T>::Btree()
 {
   root = NULL;
 }
 
 template<class T>
-btree<T>::~btree()
+Btree<T>::~Btree()
 {
 }
 
 template<class T>
-typename btree<T>::node* btree<T>::CreateLeaf(const T& key)
+typename Btree<T>::node* Btree<T>::CreateLeaf(const T& key)
 {
   node* n = new node;
   n->key = key;
@@ -29,13 +29,13 @@ typename btree<T>::node* btree<T>::CreateLeaf(const T& key)
 }
 
 template<class T>
-void btree<T>::AddKey(const T& key)
+void Btree<T>::AddKey(const T& key)
 {
   AddNode(key, root);
 }
 
 template<class T>
-void btree<T>::AddNode(const T& key, typename btree<T>::node* ptr)
+void Btree<T>::AddNode(const T& key, typename Btree<T>::node* ptr)
 {
   if (root == NULL) {
     root = CreateLeaf(key);
@@ -61,13 +61,13 @@ void btree<T>::AddNode(const T& key, typename btree<T>::node* ptr)
 }
 
 template<class T>
-void btree<T>::Print()
+void Btree<T>::Print()
 {
   PrintTree(root);
 }
 
 template<class T>
-void btree<T>::PrintTree(typename btree<T>::node* ptr)
+void Btree<T>::PrintTree(typename Btree<T>::node* ptr)
 {
   if (root != NULL) {
     if(ptr->left != NULL) {

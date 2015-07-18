@@ -3,7 +3,7 @@
 
 int main()
 {
-  btree<int> tree;
+  Btree<int> tree;
 
   int key[5] = {3, 6, 1, 10, 5};
 
